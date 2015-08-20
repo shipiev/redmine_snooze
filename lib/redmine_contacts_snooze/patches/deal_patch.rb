@@ -1,3 +1,4 @@
+# coding: utf-8
 require_dependency 'issue'
 require_dependency 'issue_relation'
 
@@ -21,7 +22,7 @@ module RedmineContactsSnooze
       Rails.logger.error("deal owerwrite".red)
 
       def setup_snooze
-        self.create_snooze(next_alarm: Date.today + 3.days, description: 'Auto setup.')
+        self.create_snooze(next_alarm: Date.today + 3.days, description: 'Автоматический бидильник с отсрочкой на три дня.')
       end
       
     end

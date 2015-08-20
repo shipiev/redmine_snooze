@@ -1,0 +1,9 @@
+%p= 'Переустановить будильник на:'
+= form_for snooze do |f|
+  %p
+    = f.date_field :next_alarm
+    = calendar_for 'snooze_next_alarm'
+  %p
+    = f.text_area :description
+  %p
+    = f.submit 'Сохранить'
