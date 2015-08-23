@@ -1,0 +1,14 @@
+# Russian strings go here for Rails i18n
+ru:
+  snooze:
+    deadlines:
+      after_0_day: завтра
+      after_1_day: послезавтра
+      after_3_days: через 3 дня
+      after_5_days: через 5 дней
+      after_7_days: через 7 дней
+    fields:
+      deadline_on: Напомнить
+  snooze_mailer:
+    subjects:
+      daily_notify: "У вас на сегодня сделок: %{count}"

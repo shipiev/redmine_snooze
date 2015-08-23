@@ -1,7 +1,0 @@
-.snooze
-  %hr
-  = deal.snooze.description
-  = deal.snooze.next_alarm
-  = link_to 'Редактировать', '#', onclick: " $('#snooze_form').toggle() "
-  %div{id: 'snooze_form', style: 'display: none;'}
-    = render partial: 'snoozes/form', locals: {snooze: deal.snooze}

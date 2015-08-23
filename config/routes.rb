@@ -1,4 +1,4 @@
 # Plugin's routes
 # See: http://guides.rubyonrails.org/routing.html
 
-resources :snoozes
+resources :snoozes, only: [:create]

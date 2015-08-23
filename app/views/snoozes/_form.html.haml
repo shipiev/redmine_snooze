@@ -1,9 +1,27 @@
-%p= 'Переустановить будильник на:'
-= form_for snooze do |f|
-  %p
-    = f.date_field :next_alarm
-    = calendar_for 'snooze_next_alarm'
-  %p
-    = f.text_area :description
-  %p
-    = f.submit 'Сохранить'
+= error_messages_for snooze
+
+= form_for snooze, remote: true do |f|
+  = hidden_field_tag 'snooze[note_attributes][created_on]', Date.today.to_date
+  = hidden_field_tag 'snooze[note_attributes][note_time]', Time.now.to_s(:time)
+  -#= hidden_field_tag 'snooze[note][source_id]', deal.id
+  -#= hidden_field_tag 'snooze[note][source_type]', deal.class
+  = hidden_field_tag 'source_id', deal.id
+  = hidden_field_tag 'source_type', deal.class
+  = hidden_field_tag 'project_id', project && project.id
+  = f.hidden_field :deal_id
+
+  #note_attributes
+    %p.extended-attributes
+      = select_tag 'snooze[note_attributes][type_id]', options_for_select(collection_for_note_types_select)
+      = l(:deadline_on, scope: 'snooze.fields') + ':'
+      = link_to_function l(:after_0_day, scope: 'snooze.deadlines'), "$('#snooze_deadline_on').val('#{(Date.today + 1.day).to_date}')"
+      = link_to_function l(:after_1_day, scope: 'snooze.deadlines'), "$('#snooze_deadline_on').val('#{(Date.today + 2.day).to_date}')"
+      = link_to_function l(:after_3_days, scope: 'snooze.deadlines'), "$('#snooze_deadline_on').val('#{(Date.today + 4.day).to_date}')"
+      = link_to_function l(:after_5_days, scope: 'snooze.deadlines'), "$('#snooze_deadline_on').val('#{(Date.today + 6.day).to_date}')"
+      = link_to_function l(:after_7_days, scope: 'snooze.deadlines'), "$('#snooze_deadline_on').val('#{(Date.today + 8.day).to_date}')"
+      = f.text_field :deadline_on, size: 15
+      = calendar_for 'snooze_deadline_on'
+
+    = text_area_tag 'snooze[note_attributes][content]', snooze.note.try(:content), rows: 6, class: 'wiki-edit'
+
+  = submit_tag l(:button_add_note), id: 'submit_add_note_form', class: 'button-small'
