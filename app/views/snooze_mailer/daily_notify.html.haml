@@ -1,8 +1,8 @@
 %h1= l(:daily_notify, scope: 'snooze_mailer.headers')
 
 %ul
-  - @snooze.each do |snooze|
+  - @snoozes.each do |snooze|
     %li
       = snooze.deal
-      "(#{snooze.deadline})"
+      "(#{snooze.deadline_on})"
       %q= snooze.note

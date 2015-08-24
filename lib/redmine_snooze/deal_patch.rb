@@ -4,5 +4,9 @@ module RedmineSnooze::DealPatch
   included do
     has_one :snooze
   end
+
+  def to_s
+    name
+  end
 end
 

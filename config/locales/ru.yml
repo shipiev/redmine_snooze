@@ -11,4 +11,6 @@ ru:
       deadline_on: Напомнить
   snooze_mailer:
     subjects:
-      daily_notify: "У вас на сегодня сделок: %{count}"
+      daily_notify: "У Вас на сегодня сделок: %{count}"
+    headers:
+      daily_notify: "Список сделок, на которые Вам следует обратить сегодня внимание:"

@@ -1,4 +1,4 @@
 = l(:daily_notify, scope: 'snooze_mailer.headers')
 
-- @snooze.each do |snooze|
-  = "* #{snooze.deal} (#{snooze.deadline})\n> #{snooze.note}"
+- @snoozes.each do |snooze|
+  = "* #{snooze.deal} (#{snooze.deadline_on})\n> #{snooze.note}"
