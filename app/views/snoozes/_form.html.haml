@@ -3,10 +3,6 @@
 = form_for snooze, remote: true do |f|
   = hidden_field_tag 'snooze[note_attributes][created_on]', Date.today.to_date
   = hidden_field_tag 'snooze[note_attributes][note_time]', Time.now.to_s(:time)
-  -#= hidden_field_tag 'snooze[note][source_id]', deal.id
-  -#= hidden_field_tag 'snooze[note][source_type]', deal.class
-  = hidden_field_tag 'source_id', deal.id
-  = hidden_field_tag 'source_type', deal.class
   = hidden_field_tag 'project_id', project && project.id
   = f.hidden_field :deal_id
 

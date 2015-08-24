@@ -5,7 +5,7 @@ class Snooze < ActiveRecord::Base
 
   accepts_nested_attributes_for :note
 
-  attr_accessible :note_attributes, :deal_id, :deadline_on
+  attr_accessible :note_attributes, :deal_id, :deal, :deadline_on
 
   delegate :type_id, to: :note
 

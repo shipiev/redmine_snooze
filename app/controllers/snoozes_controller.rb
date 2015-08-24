@@ -11,8 +11,7 @@ class SnoozesController < ApplicationController
   delegate :model_object, to: :'self.class', prefix: false
 
   def create
-    @snooze.note.source_id = @snooze.deal_id
-    @snooze.note.source_type = 'Deal'
+    @snooze.note.source = @snooze.deal
     @snooze.note.author = User.current
 
     if @snooze.save
