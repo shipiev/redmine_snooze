@@ -24,5 +24,5 @@ Redmine contacts snooze
 Для этого ее желательно прописать в /etc/cron.daily, а в /etc/crontab прописать время, когда будет запускаться cron.daily.
 Например, для запуска в 10 утра в будни:
 
-0 10 * * 1-5 root run-parts /etc/cron.daily
+    0 10 * * 1-5 root run-parts /etc/cron.daily
 
